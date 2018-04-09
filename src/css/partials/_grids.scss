@@ -1,0 +1,43 @@
+* {
+    box-sizing: border-box;
+}
+[class*="col-"]{
+  float: left;
+  width: 100%;
+  padding: 5px;
+}
+@include media-query("tablet") {
+  @for $i from 1 through 12{
+    .col-#{$i}{
+      width: 100% / 12 * $i;
+    }
+  }
+}
+.row::after {
+    content: "";
+    clear: both;
+    display: table;
+}
+.flex{
+  display: flex;
+}
+.flex-row{
+  @extend .flex;
+  flex-direction: row;
+  &-full{
+    @extend .flex-row;
+    width: 100%;
+    justify-content: space-between;
+    align-items: stretch;
+  }
+}
+.flex-coloumn{
+  @extend .flex;
+  flex-direction: column;
+  &-full{
+    @extend .flex-coloumn;
+    height: 100%;
+    justify-content: space-between;
+    align-items: stretch;
+  }
+}
