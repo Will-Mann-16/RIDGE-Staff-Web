@@ -237,6 +237,7 @@ class StudentPage extends React.Component {
             required
             className="form-input"
             onChange={this.handleChange.bind(this)}
+            type="password"
             name="password"
             style={{
               borderColor: this.state.error.input !== 'code' ? 'black' : 'red'
