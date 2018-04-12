@@ -1,5 +1,5 @@
 /*jshint esversion: 6 */
-import { emit } from './../socket.js';
+import { emit, connected } from './../socket.js';
 import { axiosToken } from '../constants';
 import { readStudentsMajor } from "./studentsActions";
 export function createLocation(location, house) {
