@@ -106,7 +106,7 @@ class HousesListPage extends React.Component {
             </Toggle>
           </td>
           <td style={{ textAlign: 'center', height: '100%' }}>
-            {this.props.user.user.user.house === house._id ? (
+            {this.props.user.user.house === house._id ? (
               <button className="btn-gray" onClick={null}>
                 Selected
               </button>
