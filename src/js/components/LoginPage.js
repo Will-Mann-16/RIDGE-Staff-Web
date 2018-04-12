@@ -24,7 +24,8 @@ class LoginPage extends React.Component {
       <div className="container">
         <h1 style={{textAlign: "center"}}>Welcome to RIDGE</h1>
         <h3>Login</h3>
-        <input name="username" type="text" placeholder="Username" className="form-input" onChange={this.handleChange.bind(this)}></input>
+        <input name="username" type="text" pla;
+ceholder="Username" className="form-input" onChange={this.handleChange.bind(this)}></input>
         <input name="password" type="password" placeholder="Password" className="form-input" onChange={this.handleChange.bind(this)}></input>
         <button className="btn-green" onClick={this.submitLogin.bind(this)}>Login</button>
       </div>
