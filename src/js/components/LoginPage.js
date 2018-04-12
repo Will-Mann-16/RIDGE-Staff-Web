@@ -29,8 +29,7 @@ class LoginPage extends React.Component {
         <input
           name="username"
           type="text"
-          pla
-          ceholder="Username"
+          placeholder="Username"
           className="form-input"
           onChange={this.handleChange.bind(this)}
         />

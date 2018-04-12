@@ -1,6 +1,7 @@
 /*jshint esversion: 6 */
 import { emit } from './../socket.js';
 import { axiosToken } from '../constants';
+import { readStudentsMajor } from "../studentsActions";
 export function createLocation(location, house) {
   return dispatch => {
     dispatch({ type: 'CREATE_LOCATION' });
@@ -8,8 +9,13 @@ export function createLocation(location, house) {
       .post('locations/create', { location: location, house: house })
       .then(response => {
         if (response.status === 200 && response.data.success) {
-          dispatch(readLocations(house));
-          emit('socket-client-server-redraw-major');
+          if(connected){
+            emit('socket-client-server-redraw-major');
+          }
+          else{
+            dispatch(readStudentsMajor(house));
+            dispatch(readLocations(house));
+          }
           dispatch({
             type: 'CREATE_LOCATION_FULFILLED',
             payload: response.data.success
@@ -57,8 +63,13 @@ export function updateLocation(id, location, house) {
       .post('locations/update', { id: id, location: location, house: house })
       .then(response => {
         if (response.status === 200 && response.data.success) {
-          dispatch(readLocations(location._house));
-          emit('socket-client-server-redraw-major');
+          if(connected){
+            emit('socket-client-server-redraw-major');
+          }
+          else{
+            dispatch(readStudentsMajor(house));
+            dispatch(readLocations(house));
+          }
           dispatch({
             type: 'UPDATE_LOCATION_FULFILLED',
             payload: response.data.location
@@ -83,7 +94,13 @@ export function deleteLocation(id, house) {
       .get('locations/delete', { params: { id: id, house: house } })
       .then(response => {
         if (response.status === 200 && response.data.success) {
-          emit('socket-client-server-redraw-major');
+          if(connected){
+            emit('socket-client-server-redraw-major');
+          }
+          else{
+            dispatch(readStudentsMajor(house));
+            dispatch(readLocations(house));
+          }
           dispatch({
             type: 'DELETE_LOCATION_FULFILLED',
             payload: response.data.success

@@ -1,6 +1,7 @@
 /*jshint esversion: 6 */
-import { emit } from './../socket.js';
+import { emit, connected } from './../socket.js';
 import { axiosToken } from '../constants';
+import { readLocations } from "../locationsActions";
 export function selectStudent(id) {
   return dispatch => {
     dispatch({ type: 'SELECT_STUDENT', payload: id });
@@ -18,8 +19,13 @@ export function createStudent(student, house) {
       .post('students/create', { student: student, house: house })
       .then(response => {
         if (response.status === 200 && response.data.success) {
-          dispatch(readStudentsMajor(house));
-          emit('socket-client-server-redraw-major');
+          if(connected){
+            emit('socket-client-server-redraw-major');
+          }
+          else{
+            dispatch(readStudentsMajor(house));
+            dispatch(readLocations(house));
+          }
           dispatch({ type: 'CREATE_STUDENT_FULFILLED', payload: true });
         } else {
           dispatch({
@@ -99,8 +105,12 @@ export function updateStudentLocation(ids, location, house) {
       })
       .then(response => {
         if (response.status === 200 && response.data.success) {
-          dispatch(readStudentsMinor(house));
-          emit('socket-client-server-redraw-minor');
+          if(connected){
+            emit('socket-client-server-redraw-minor');
+          }
+          else{
+            dispatch(readStudentsMinor(house));
+          }
           dispatch({
             type: 'UPDATE_STUDENT_LOCATION_FULFILLED',
             payload: response.data.students
@@ -125,8 +135,13 @@ export function updateStudent(id, student, house) {
       .post('students/update', { id: id, student: student, house: house })
       .then(response => {
         if (response.status === 200 && response.data.success) {
-          dispatch(readStudentsMajor(house));
-          emit('socket-client-server-redraw-major');
+          if(connected){
+            emit('socket-client-server-redraw-major');
+          }
+          else{
+            dispatch(readStudentsMajor(house));
+            dispatch(readLocations(house));
+          }
           dispatch({
             type: 'UPDATE_STUDENT_FULFILLED',
             payload: response.data.student
@@ -151,7 +166,13 @@ export function deleteStudent(id, house) {
       .get('students/delete', { params: { id: id, house: house } })
       .then(response => {
         if (response.status === 200 && response.data.success) {
-          emit('socket-client-server-redraw-minor');
+          if(connected){
+            emit('socket-client-server-redraw-major');
+          }
+          else{
+            dispatch(readStudentsMajor(house));
+            dispatch(readLocations(house));
+          }
           dispatch({
             type: 'DELETE_STUDENT_FULFILLED',
             payload: response.data.success
@@ -176,8 +197,13 @@ export function uploadStudents(json, house) {
       .post('students/upload', { json: json, house: house })
       .then(response => {
         if (response.status === 200 && response.data.success) {
-          dispatch(readStudentsMajor(house));
-          emit('socket-client-server-redraw-major');
+          if(connected){
+            emit('socket-client-server-redraw-major');
+          }
+          else{
+            dispatch(readStudentsMajor(house));
+            dispatch(readLocations(house));
+          }
           dispatch({
             type: 'UPLOAD_STUDENTS_FULFILLED',
             payload: response.data.success
