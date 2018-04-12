@@ -59,10 +59,10 @@ class CalenderPage extends React.Component {
         description: this.state.event.description,
         starttime: startTime,
         endtime: endTime,
-        _house: this.props.user.user.user.house
+        _house: this.props.user.user.house
       };
       this.props.dispatch(
-        createCalender(event, this.props.user.user.user.house)
+        createCalender(event, this.props.user.user.house)
       );
     } else {
       var event = {
@@ -71,16 +71,16 @@ class CalenderPage extends React.Component {
         description: this.state.event.description,
         starttime: startTime,
         endtime: endTime,
-        _house: this.props.user.user.user.house
+        _house: this.props.user.user.house
       };
       this.props.dispatch(
-        updateCalender(event._id, event, this.props.user.user.user.house)
+        updateCalender(event._id, event, this.props.user.user.house)
       );
     }
     this.setState({ ...this.state, openEdit: false });
   }
   delete(id) {
-    this.props.dispatch(deleteCalender(id, this.props.user.user.user.house));
+    this.props.dispatch(deleteCalender(id, this.props.user.user.house));
   }
   editEvent(id) {
     this.setState({ ...this.state, openEdit: true, eventID: id });

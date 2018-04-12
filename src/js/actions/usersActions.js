@@ -33,7 +33,7 @@ export function readUser(token = localStorage.getItem('RIDGE-AUTH-TOKEN')) {
       })
       .then(response => {
         if (response.status === 200 && response.data.success) {
-          dispatch(setActiveConfig(response.data.user.user.house));
+          dispatch(setActiveConfig(response.data.user.house));
           dispatch({
             type: 'READ_USER_FULFILLED',
             payload: { user: response.data.user, config: response.data.config }

@@ -52,7 +52,7 @@ class ViewGrid extends React.Component {
       updateStudentLocation(
         selectedIDs,
         buttonID,
-        this.props.user.user.user.house
+        this.props.user.user.house
       )
     );
   }

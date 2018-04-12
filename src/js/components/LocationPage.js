@@ -31,7 +31,7 @@ class LocationPage extends React.Component {
         ...this.state,
         location: {
           ...this.state.location,
-          _house: this.props.user.user.user.house
+          _house: this.props.user.user.house
         }
       });
     }
@@ -62,7 +62,7 @@ class LocationPage extends React.Component {
         updateLocation(
           this.state.location._id,
           this.state.location,
-          this.props.user.user.user.house
+          this.props.user.user.house
         )
       );
     } else {
@@ -72,7 +72,7 @@ class LocationPage extends React.Component {
             ...this.state.location,
             order: this.props.locations.locations.length + 1
           },
-          this.props.user.user.user.house
+          this.props.user.user.house
         )
       );
     }
@@ -82,7 +82,7 @@ class LocationPage extends React.Component {
     });
   }
   disableRole(role) {
-    if (role <= this.props.user.user.user.role) {
+    if (role <= this.props.user.user.role) {
       return true;
     }
     return false;

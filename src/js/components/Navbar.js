@@ -17,7 +17,7 @@ class Navbar extends React.Component {
         <NavLink to="/callover">Callover</NavLink>
         <NavLink to="/calender">Calender</NavLink>
         <NavLink to="/settings">Settings</NavLink>
-        {this.props.user.user.user.role <= 1 ? (
+        {this.props.user.user.role <= 1 ? (
           <NavLink to="/houses">Houses</NavLink>
         ) : null}
       </nav>

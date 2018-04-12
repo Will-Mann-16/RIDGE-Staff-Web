@@ -24,12 +24,12 @@ import { readCalender } from '../actions/calenderActions';
 
 class MainSectionLayout extends React.Component {
   componentWillMount() {
-    this.props.dispatch(readHouses(this.props.user.user.user.house));
-    this.props.dispatch(readStudentsMajor(this.props.user.user.user.house));
-    this.props.dispatch(readLocations(this.props.user.user.user.house));
-    this.props.dispatch(readCallovers(this.props.user.user.user.house));
-    this.props.dispatch(readCalender(this.props.user.user.user.house));
-    activateListener(this.props.dispatch, this.props.user.user.user.house);
+    this.props.dispatch(readHouses(this.props.user.user.house));
+    this.props.dispatch(readStudentsMajor(this.props.user.user.house));
+    this.props.dispatch(readLocations(this.props.user.user.house));
+    this.props.dispatch(readCallovers(this.props.user.user.house));
+    this.props.dispatch(readCalender(this.props.user.user.house));
+    activateListener(this.props.dispatch, this.props.user.user.house);
   }
 
   render() {

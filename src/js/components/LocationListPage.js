@@ -25,7 +25,7 @@ class LocationListPage extends React.Component {
     this.setState({ ...this.state, deleted: deleted });
   }
   delete(id) {
-    this.props.dispatch(deleteLocation(id, this.props.user.user.user.house));
+    this.props.dispatch(deleteLocation(id, this.props.user.user.house));
     var deleted = this.state.deleted.filter(i => {
       return i !== id;
     });
@@ -39,10 +39,10 @@ class LocationListPage extends React.Component {
       aboveLoc.order = location.order;
       location.order = order;
       this.props.dispatch(
-        updateLocation(aboveLoc._id, aboveLoc, this.props.user.user.user.house)
+        updateLocation(aboveLoc._id, aboveLoc, this.props.user.user.house)
       );
       this.props.dispatch(
-        updateLocation(location._id, location, this.props.user.user.user.house)
+        updateLocation(location._id, location, this.props.user.user.house)
       );
     }
   }
@@ -54,10 +54,10 @@ class LocationListPage extends React.Component {
       belowLoc.order = location.order;
       location.order = order;
       this.props.dispatch(
-        updateLocation(belowLoc._id, belowLoc, this.props.user.user.user.house)
+        updateLocation(belowLoc._id, belowLoc, this.props.user.user.house)
       );
       this.props.dispatch(
-        updateLocation(location._id, location, this.props.user.user.user.house)
+        updateLocation(location._id, location, this.props.user.user.house)
       );
     }
   }

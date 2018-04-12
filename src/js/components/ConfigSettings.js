@@ -95,7 +95,7 @@ class ConfigSettings extends React.Component {
     };
     if (this.state.submittable) {
       this.props.dispatch(
-        modifyHouseConfig(this.props.user.user.user.house, result)
+        modifyHouseConfig(this.props.user.user.house, result)
       );
     }
   }

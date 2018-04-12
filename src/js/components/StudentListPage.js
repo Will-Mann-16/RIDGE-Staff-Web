@@ -34,7 +34,7 @@ class StudentListPage extends React.Component {
   }
 
   delete(id) {
-    this.props.dispatch(deleteStudent(id, this.props.user.user.user.house));
+    this.props.dispatch(deleteStudent(id, this.props.user.user.house));
     var deleted = this.state.deleted.filter(i => {
       return i !== id;
     });
@@ -78,7 +78,7 @@ class StudentListPage extends React.Component {
       var reader = new FileReader();
       var name = f.name;
       var dispatch = this.props.dispatch;
-      var house = this.props.user.user.user.house;
+      var house = this.props.user.user.house;
       reader.onload = function(e) {
         var data = e.target.result;
         var workbook = XLSX.read(data, { type: 'binary' });

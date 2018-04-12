@@ -30,7 +30,7 @@ class StudentPage extends React.Component {
         this.setState({
           ...this.state,
           student: {
-            _house: this.props.user.user.user.house,
+            _house: this.props.user.user.house,
             timelastout: new Date(),
             yeargroup: 0,
             location: {
@@ -44,7 +44,7 @@ class StudentPage extends React.Component {
         this.setState({
           ...this.state,
           student: {
-            _house: this.props.user.user.user.house,
+            _house: this.props.user.user.house,
             timelastout: new Date(),
             yeargroup: 0,
             location: { id: null, name: 'Undefined', colour: '#ffffff' }
@@ -105,12 +105,12 @@ class StudentPage extends React.Component {
           updateStudent(
             this.state.student._id,
             this.state.student,
-            this.props.user.user.user.house
+            this.props.user.user.house
           )
         );
       } else {
         this.props.dispatch(
-          createStudent(this.state.student, this.props.user.user.user.house)
+          createStudent(this.state.student, this.props.user.user.house)
         );
       }
       this.setState({ ...this.state, submitted: true });
@@ -122,7 +122,7 @@ class StudentPage extends React.Component {
     }
   }
   disableRole(role) {
-    if (role <= this.props.user.user.user.role) {
+    if (role <= this.props.user.user.role) {
       return true;
     }
     return false;

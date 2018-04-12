@@ -33,9 +33,9 @@ class CalloverPage extends React.Component {
         {
           time: Date.now(),
           students: students,
-          _house: this.props.user.user.user.house
+          _house: this.props.user.user.house
         },
-        this.props.user.user.user.house
+        this.props.user.user.house
       )
     );
     if (this.state.defaultLocation !== null) {
@@ -43,7 +43,7 @@ class CalloverPage extends React.Component {
         updateStudentLocation(
           this.state.calledOver,
           this.state.defaultLocation,
-          this.props.user.user.user.house
+          this.props.user.user.house
         )
       );
     }

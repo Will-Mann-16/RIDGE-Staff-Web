@@ -16,7 +16,7 @@ class SettingsPage extends React.Component {
     this.setState({ activePage: pageID });
   }
   disableRole(role) {
-    if (role <= this.props.user.user.user.role) {
+    if (role <= this.props.user.user.role) {
       return true;
     }
     return false;
@@ -64,7 +64,7 @@ class SettingsPage extends React.Component {
             >
               New User
             </li>
-            {this.props.user.user.user.role <= 2 ? (
+            {this.props.user.user.role <= 2 ? (
               <li
                 onClick={this.changeActivePage.bind(this, 2)}
                 className={this.state.activePage === 2 ? 'active' : null}

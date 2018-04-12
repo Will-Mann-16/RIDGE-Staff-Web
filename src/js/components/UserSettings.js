@@ -15,13 +15,13 @@ class UserSettings extends React.PureComponent {
   }
   componentWillMount() {
     if (this.props.edit) {
-      this.setState({ ...this.state, user: this.props.user.user.user });
+      this.setState({ ...this.state, user: this.props.user.user });
     } else {
       this.setState({
         ...this.state,
         user: {
-          role: this.props.user.user.user.role,
-          house: this.props.user.user.user.house
+          role: this.props.user.user.role,
+          house: this.props.user.user.house
         }
       });
     }
@@ -55,7 +55,7 @@ class UserSettings extends React.PureComponent {
     }
   }
   disableRole(role) {
-    if (role <= this.props.user.user.user.role) {
+    if (role <= this.props.user.user.role) {
       return true;
     }
     return false;
@@ -82,14 +82,14 @@ class UserSettings extends React.PureComponent {
       if (this.props.edit) {
         this.props.dispatch(
           updateUser(
-            this.props.user.user.user._id,
+            this.props.user.user._id,
             this.state.user,
-            this.props.user.user.user.house
+            this.props.user.user.house
           )
         );
       } else {
         this.props.dispatch(
-          createUser(this.state.user, this.props.user.user.user.house)
+          createUser(this.state.user, this.props.user.user.house)
         );
       }
     }
@@ -113,7 +113,7 @@ class UserSettings extends React.PureComponent {
         <option
           key={key}
           value={house._id}
-          selected={house._id === this.props.user.user.user.house}
+          selected={house._id === this.props.user.user.house}
         >
           {house.name}
         </option>

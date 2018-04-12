@@ -29,7 +29,7 @@ class HistoryListPage extends React.Component {
     axiosToken
       .get('history/read', {
         params: {
-          house: this.props.user.user.user.house,
+          house: this.props.user.user.house,
           amount: this.state.amount,
           filter: this.state.search
         }
