@@ -24,14 +24,12 @@ export function createUser(user, house) {
       });
   };
 }
-export function readUser() {
+export function readUser(token = localStorage.getItem('RIDGE-AUTH-TOKEN')) {
   return dispatch => {
     dispatch({ type: 'READ_USER' });
     axiosOpen
       .post('users/read', {
-        jwt: localStorage.getItem('AUTH-TOKEN')
-          ? localStorage.getItem('AUTH-TOKEN')
-          : false
+        jwt: token ? token : false
       })
       .then(response => {
         if (response.status === 200 && response.data.success) {
@@ -111,9 +109,9 @@ export function authenticateUser(username, password) {
           if (response.status === 403 && !response.data.authenticated) {
             dispatch({ type: 'AUTHENTICATE_USER_DENIED', payload: false });
           } else if (response.status === 200) {
-            localStorage.setItem('AUTH-TOKEN', response.data.token);
+            localStorage.setItem('RIDGE-AUTH-TOKEN', response.data.token);
             dispatch({ type: 'AUTHENTICATE_USER_FULFILLED', payload: true });
-            dispatch(readUser());
+            dispatch(readUser(response.data.token));
           }
         } else {
           dispatch({
@@ -131,7 +129,7 @@ export function authenticateUser(username, password) {
 export function logoutUser() {
   return dispatch => {
     dispatch({ type: 'LOGOUT_USER' });
-    localStorage.removeItem('AUTH-TOKEN');
+    localStorage.removeItem('RIDGE-AUTH-TOKEN');
     dispatch({ type: 'LOGOUT_USER_FULFILLED', payload: true });
     dispatch(readUser());
     //dispatch({type: "LOGOUT_USER_REJECTED", payload: err});
