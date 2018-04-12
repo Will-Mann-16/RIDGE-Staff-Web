@@ -131,7 +131,7 @@ export function logoutUser() {
     dispatch({ type: 'LOGOUT_USER' });
     localStorage.removeItem('RIDGE-AUTH-TOKEN');
     dispatch({ type: 'LOGOUT_USER_FULFILLED', payload: true });
-    dispatch(readUser());
+    dispatch(readUser(false));
     //dispatch({type: "LOGOUT_USER_REJECTED", payload: err});
   };
 }
