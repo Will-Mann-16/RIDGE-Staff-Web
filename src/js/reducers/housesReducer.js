@@ -7,7 +7,6 @@ export default function reducer(
   },
   action
 ) {
-  console.log(action);
   switch (action.type) {
     case 'CREATE_HOUSE':
       return { ...state, fetching: true, fetched: false };
