@@ -1,7 +1,7 @@
 /*jshint esversion: 6 */
 import { emit } from './../socket.js';
 import { axiosToken } from '../constants';
-import { readStudentsMajor } from "../studentsActions";
+import { readStudentsMajor } from "./studentsActions";
 export function createLocation(location, house) {
   return dispatch => {
     dispatch({ type: 'CREATE_LOCATION' });

@@ -1,7 +1,7 @@
 /*jshint esversion: 6 */
 import { emit, connected } from './../socket.js';
 import { axiosToken } from '../constants';
-import { readLocations } from "../locationsActions";
+import { readLocations } from "./locationsActions";
 export function selectStudent(id) {
   return dispatch => {
     dispatch({ type: 'SELECT_STUDENT', payload: id });
