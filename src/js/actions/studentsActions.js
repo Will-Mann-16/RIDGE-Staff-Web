@@ -12,6 +12,11 @@ export function deselectStudent(id) {
     dispatch({ type: 'DESELECT_STUDENT', payload: id });
   };
 }
+export function deselectAll(){
+  return dispatch => {
+    dispatch({ type: 'DESELECT_ALL_STUDENTS', payload: true });
+  }
+}
 export function createStudent(student, house) {
   return dispatch => {
     dispatch({ type: 'CREATE_STUDENT' });

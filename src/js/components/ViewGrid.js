@@ -34,12 +34,6 @@ class ViewGrid extends React.Component {
       }
     });
   }
-  deselectAll() {
-    var selectedIDs = this.props.students.selected;
-    selectedIDs.forEach(id => {
-      this.addSelected(id);
-    });
-  }
   toggleDropped() {
     this.setState({
       ...this.state,

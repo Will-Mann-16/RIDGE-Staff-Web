@@ -20,6 +20,9 @@ export default function reducer(
       selected.splice(indexOf, 1);
       return { ...state, selected: selected };
 
+    case 'DESELECT_ALL_STUDENTS':
+      return {...state, selected: [] };
+
     case 'CREATE_STUDENT':
       return { ...state, fetching: true, fetched: false };
     case 'CREATE_STUDENT_REJECTED':
