@@ -6,7 +6,7 @@ import {
   selectStudent,
   deselectStudent,
   updateStudentLocation,
-  deselectAll,
+  deselectAll
 } from '../actions/studentsActions';
 
 import StudentCard from './StudentCard';
