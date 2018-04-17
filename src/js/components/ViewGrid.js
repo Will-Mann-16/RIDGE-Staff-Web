@@ -5,7 +5,8 @@ import { house } from '../socket';
 import {
   selectStudent,
   deselectStudent,
-  updateStudentLocation
+  updateStudentLocation,
+  deselectAll,
 } from '../actions/studentsActions';
 
 import StudentCard from './StudentCard';
@@ -105,7 +106,7 @@ class ViewGrid extends React.Component {
                     <div className="panel">
                       <button
                         className="select-button"
-                        onClick={this.deselectAll.bind(this)}
+                        onClick={() => this.props.dispatch(deselectAll())}
                       >
                         Deselect All
                       </button>
