@@ -8,7 +8,7 @@ export const scriptsDirectory = HOST_IP + '/api/';
 
 export const axiosToken = axios.create({
   baseURL: scriptsDirectory,
-  headers: { 'X-Access-Token': localStorage.getItem('AUTH-TOKEN') }
+  headers: { 'X-Access-Token': localStorage.getItem('RIDGE-AUTH-TOKEN') }
 });
 
 export const axiosOpen = axios.create({
