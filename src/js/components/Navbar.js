@@ -15,7 +15,7 @@ class Navbar extends React.Component {
         <img
           src={logo}
           style={{ float: 'left', margin: 5, width: 36, height: 36 }}
-          alt="RIDGE"
+          alt=""
         />
         <NavLink to="/">Home</NavLink>
         <NavLink to="/students">Students</NavLink>
