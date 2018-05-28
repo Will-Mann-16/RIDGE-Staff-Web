@@ -12,7 +12,7 @@ import SettingsPage from './SettingsPage';
 import HistoryListPage from './HistoryListPage';
 import HousePage from './HousePage';
 import CalloverPage from './CalloverPage';
-import CalenderPage from './CalenderPage';
+import CalendarPage from './CalendarPage';
 
 import Navbar from './Navbar';
 import { activateListener } from '../socket';
@@ -20,7 +20,7 @@ import { readHouses } from '../actions/housesActions';
 import { readLocations } from '../actions/locationsActions';
 import { readStudentsMajor } from '../actions/studentsActions';
 import { readCallovers } from '../actions/calloverActions';
-import { readCalender } from '../actions/calenderActions';
+import { readCalendar } from '../actions/calendarActions';
 
 class MainSectionLayout extends React.Component {
   componentWillMount() {
@@ -28,7 +28,7 @@ class MainSectionLayout extends React.Component {
     this.props.dispatch(readStudentsMajor(this.props.user.user.house));
     this.props.dispatch(readLocations(this.props.user.user.house));
     this.props.dispatch(readCallovers(this.props.user.user.house));
-    this.props.dispatch(readCalender(this.props.user.user.house));
+    this.props.dispatch(readCalendar(this.props.user.user.house));
     activateListener(this.props.dispatch, this.props.user.user.house);
   }
 
@@ -118,9 +118,9 @@ class MainSectionLayout extends React.Component {
               component={({ props }) => <CalloverPage {...props} />}
             />
             <Route
-              path="/calender"
-              name="calender"
-              component={({ props }) => <CalenderPage {...props} />}
+              path="/calendar"
+              name="calendar"
+              component={({ props }) => <CalendarPage {...props} />}
             />
             <Route
               path="/settings"

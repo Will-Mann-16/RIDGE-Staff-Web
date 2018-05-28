@@ -26,11 +26,13 @@
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject",
     "build-css": "node-sass-chokidar src/css/ -o src/css/",
-    "watch-css":
-      "npm run build-css && node-sass-chokidar src/css/ -o src/css/ --watch --recursive"
+    "watch-css": "npm run build-css && node-sass-chokidar src/css/ -o src/css/ --watch --recursive"
   },
   "devDependencies": {},
   "lint-staged": {
-    "src/**/*.{js,jsx,json,css}": ["prettier --single-quote --write", "git add"]
+    "src/**/*.{js,jsx,json,css}": [
+      "prettier --single-quote --write",
+      "git add"
+    ]
   }
 }
