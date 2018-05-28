@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { NavLink } from 'react-router-dom';
-import logo from '../../assets/images/Logo Icon White.png';
+import logo from './../../assets/images/Logo Icon White.png';
 class Navbar extends React.Component {
   render() {
     return (
@@ -15,7 +15,7 @@ class Navbar extends React.Component {
         <NavLink to="/locations">Locations</NavLink>
         <NavLink to="/history">History</NavLink>
         <NavLink to="/callover">Callover</NavLink>
-        <NavLink to="/calender">Calender</NavLink>
+        <NavLink to="/calendar">Calendar</NavLink>
         <NavLink to="/settings">Settings</NavLink>
         {this.props.user.user.role <= 1 ? (
           <NavLink to="/houses">Houses</NavLink>
