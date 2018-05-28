@@ -69,19 +69,6 @@ class LocationListPage extends React.Component {
         backgroundColor: location.colour
       };
       var link = '/locations/' + location._id;
-      var headingHTML = () => {
-        switch (location.heading) {
-          case 0 + '':
-            return 'No Heading';
-            break;
-          case 1 + '':
-            return 'In College';
-            break;
-          case 2 + '':
-            return 'Out of College';
-            break;
-        }
-      };
       var display =
         search.test(location.name) ||
         search.test(location.colour) ||
@@ -89,7 +76,7 @@ class LocationListPage extends React.Component {
       return display ? (
         <tr>
           <td>{location.name}</td>
-          <td>{headingHTML()}</td>
+          <td>{this.props.user.config.LOCATION_HEADINGS[location.heading]}</td>
           <td style={locationStyle}>{location.colour}</td>
           <td style={{ textAlign: 'center' }}>
             <Link to={link} style={{ textDecoration: 'none', color: 'black' }}>
