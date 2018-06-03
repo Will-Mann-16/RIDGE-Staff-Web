@@ -136,12 +136,12 @@ h6 {
     background-color: white; }
 
 .btn-african-sapphire {
-  background-color: #271747; }
+  background-color: #23265C; }
   .btn-african-sapphire:hover {
-    background-color: #120b20; }
+    background-color: #151737; }
   .btn-african-sapphire:disabled {
     cursor: not-allowed;
-    background-color: #472a81; }
+    background-color: #383d93; }
 
 .btn-serpentine {
   background-color: #173F35; }
@@ -268,7 +268,7 @@ body {
   border: 16px solid #f3f3f3;
   /* Light grey */
   border-top: 16px solid #008755;
-  border-right: 16px solid #271747;
+  border-right: 16px solid #23265C;
   border-bottom: 16px solid #2D2926;
   border-left: 16px solid #173F35;
   position: absolute;
@@ -392,10 +392,10 @@ body {
     padding: 14px 16px;
     text-decoration: none; }
     .main-topnav a:hover {
-      background-color: black;
-      color: white; }
+      background-color: white;
+      color: black; }
   .main-topnav .active {
-    background-color: white;
+    background-color: #DDD;
     color: black; }
 
 .icon-bar {

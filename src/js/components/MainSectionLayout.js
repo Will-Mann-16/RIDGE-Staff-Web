@@ -1,6 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { Route, Switch, HashRouter } from 'react-router-dom';
+import { Route, Switch, BrowserRouter } from 'react-router-dom';
 
 import MainPage from './MainPage';
 import HousesListPage from './HousesListPage';
@@ -37,7 +37,7 @@ class MainSectionLayout extends React.Component {
         return (<div className="loader"></div>);
     }*/
     return (
-      <HashRouter>
+      <BrowserRouter>
         <div>
           <Navbar />
           <Switch>
@@ -129,7 +129,7 @@ class MainSectionLayout extends React.Component {
             />
           </Switch>
         </div>
-      </HashRouter>
+      </BrowserRouter>
     );
   }
 }
