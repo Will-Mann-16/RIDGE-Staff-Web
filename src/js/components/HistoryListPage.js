@@ -36,7 +36,7 @@ class HistoryListPage extends React.Component {
     });
   }
   pullData() {
-    axiosToken
+    axiosOpen
       .get('history/read', {
         params: {
           house: this.props.user.user.house,
@@ -47,7 +47,7 @@ class HistoryListPage extends React.Component {
       var filter = {
         whiteLocations: this.state.filters.whiteLocations,
         search: this.state.filters.search,
-        yeargroup: yeargroups,
+        yeargroup: this.state.filters.yeargroup,
         startTime: this.state.range.start.format(),
         endTime: this.state.range.end.format()
       };
