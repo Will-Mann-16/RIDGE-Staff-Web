@@ -13,8 +13,13 @@
     padding: 14px 16px;
     text-decoration: none;
     &:hover{
-      background-color: black;
+      background-color: white;
+      color: black;
     }
+  }
+  .active{
+    background-color: #DDD;
+    color: black;
   }
 }
 

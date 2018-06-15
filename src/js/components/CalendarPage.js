@@ -2,11 +2,11 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { Toggle } from 'react-powerplug';
 import {
-  createCalender,
-  deleteCalender,
-  updateCalender
-} from '../actions/calenderActions';
-class CalenderPage extends React.Component {
+  createCalendar,
+  deleteCalendar,
+  updateCalendar
+} from '../actions/calendarActions';
+class CalendarPage extends React.Component {
   constructor(props) {
     super(props);
     var date = new Date();
@@ -24,7 +24,7 @@ class CalenderPage extends React.Component {
   }
   componentWillReceiveProps(newProps) {
     if (newProps.eventID !== -1) {
-      newProps.calender.events.forEach(event => {
+      newProps.calendar.events.forEach(event => {
         if (event._id === newProps.eventID) {
           this.setState({
             ...this.state,
@@ -62,7 +62,7 @@ class CalenderPage extends React.Component {
         _house: this.props.user.user.house
       };
       this.props.dispatch(
-        createCalender(event, this.props.user.user.house)
+        createCalendar(event, this.props.user.user.house)
       );
     } else {
       var event = {
@@ -74,13 +74,13 @@ class CalenderPage extends React.Component {
         _house: this.props.user.user.house
       };
       this.props.dispatch(
-        updateCalender(event._id, event, this.props.user.user.house)
+        updateCalendar(event._id, event, this.props.user.user.house)
       );
     }
     this.setState({ ...this.state, openEdit: false });
   }
   delete(id) {
-    this.props.dispatch(deleteCalender(id, this.props.user.user.house));
+    this.props.dispatch(deleteCalendar(id, this.props.user.user.house));
   }
   editEvent(id) {
     this.setState({ ...this.state, openEdit: true, eventID: id });
@@ -100,7 +100,7 @@ class CalenderPage extends React.Component {
     this.setState({ ...this.state, date: value });
   }
   render() {
-    var calenderHTML = this.props.calender.events.map((event, key) => {
+    var calendarHTML = this.props.calendar.events.map((event, key) => {
       var startTime = new Date(event.starttime);
       var endTime = new Date(event.endtime);
       if (startTime.toDateString() === this.state.date.toDateString()) {
@@ -234,7 +234,7 @@ class CalenderPage extends React.Component {
               <th style={{ textAlign: 'center' }}>Edit</th>
               <th style={{ textAlign: 'center' }}>Delete</th>
             </tr>
-            {calenderHTML}
+            {calendarHTML}
           </tbody>
         </table>
       </div>
@@ -244,9 +244,9 @@ class CalenderPage extends React.Component {
 
 function mapStateToProps(state) {
   return {
-    calender: state.calender,
+    calendar: state.calendar,
     user: state.user
   };
 }
 
-export default connect(mapStateToProps)(CalenderPage);
+export default connect(mapStateToProps)(CalendarPage);
