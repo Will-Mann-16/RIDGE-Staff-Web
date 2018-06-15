@@ -316,4 +316,4 @@ function mapStateToProps(state) {
   };
 }
 
-export default connect(mapStateToProps)(StudentPage);
+export default withRouter(connect(mapStateToProps)(StudentPage));

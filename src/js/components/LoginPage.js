@@ -22,9 +22,33 @@ class LoginPage extends React.Component {
     this.setState({ [name]: value });
   }
   render() {
+    var loginButton = (
+      <button className="btn-african-sapphire" onClick={this.submitLogin.bind(this)}>
+        Login
+      </button>
+    );
+    if(this.props.user.login.fetching){
+      var loginButton = (
+        <button className="btn-blue">
+          <i className="fas fa-sync fa-spin"></i> Loading
+        </button>
+      );
+    }
+    else if(this.props.user.login.fetched){
+      if(this.props.user.login.authenticated){
+        <button className="btn-green">
+          <i className="fas fa-check"></i> Success
+        </button>
+      }
+      else{
+        <button className="btn-red" onClick={this.submitLogin.bind(this)}>
+          <i className="fas fa-times"></i> Incorrect Login
+        </button>
+      }
+    }
     return (
       <div className="container">
-        <h1 style={{ textAlign: "center" }}>Welcome to RIDGE</h1>
+        <h1 style={{ textAlign: "center" }}>Login</h1>
         <h3>Login</h3>
         <input
           name="username"
@@ -40,9 +64,7 @@ class LoginPage extends React.Component {
           className="form-input"
           onChange={this.handleChange.bind(this)}
         />
-        <button className="btn-green" onClick={this.submitLogin.bind(this)}>
-          Login
-        </button>
+        {loginButton}
       </div>
     );
   }

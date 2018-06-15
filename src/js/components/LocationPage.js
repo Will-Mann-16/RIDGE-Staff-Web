@@ -106,8 +106,8 @@ class LocationPage extends React.Component {
       }
       return (
         <li key={key}>
-          {' '}
-          {student.firstname} {student.surname}{' '}
+
+          {student.firstname} {student.surname}
         </li>
       );
     });
@@ -118,14 +118,14 @@ class LocationPage extends React.Component {
           value={house._id}
           selected={house._id === this.state.location._house}
         >
-          {' '}
-          {house.name}{' '}
+
+          {house.name}
         </option>
       );
     });
     return (
       <div className="container row">
-        <h3> Edit Location </h3>{' '}
+        <h3> Edit Location </h3>
         <div className="col-6">
           <input
             required
@@ -138,30 +138,30 @@ class LocationPage extends React.Component {
           <CirclePicker
             color={this.state.location.colour}
             onChangeComplete={this.handleChangeColour.bind(this)}
-          />{' '}
+          />
           <SliderPicker
             style={{
               marginTop: 5
             }}
             color={this.state.location.colour}
             onChangeComplete={this.handleChangeColour.bind(this)}
-          />{' '}
+          />
           <select
             required
             className="form-input"
             name="heading"
             onChange={this.handleChange.bind(this)}
           >
-            {' '}
+
             {this.props.user.config.LOCATION_HEADINGS.map((heading, key) => {
               return (
                 <option key={key} value={key}>
-                  {' '}
-                  {heading}{' '}
+
+                  {heading}
                 </option>
               );
-            })}{' '}
-          </select>{' '}
+            })}
+          </select>
           <select
             required
             className="form-input"
@@ -172,28 +172,28 @@ class LocationPage extends React.Component {
             onChange={this.handleHouseChange.bind(this)}
             disabled={this.disableRole(1)}
           >
-            {' '}
-            {houseHTML}{' '}
-          </select>{' '}
+
+            {houseHTML}
+          </select>
           <button className="btn-green" onClick={this.submitData.bind(this)}>
-            {' '}
-            Submit{' '}
-          </button>{' '}
+
+            Submit
+          </button>
           <h6
             style={{
               display: this.state.submitted ? 'block' : 'none'
             }}
           >
-            {' '}
-            Success{' '}
-          </h6>{' '}
-        </div>{' '}
+
+            Success
+          </h6>
+        </div>
         {this.props.edit ? (
           <div className="col-6">
-            <h3> Students currently in location </h3>{' '}
-            <ul className="list"> {studentHTML} </ul>{' '}
+            <h3> Students currently in location </h3>
+            <ul className="list"> {studentHTML} </ul>
           </div>
-        ) : null}{' '}
+        ) : null}
       </div>
     );
   }
@@ -208,4 +208,4 @@ function mapStateToProps(state) {
   };
 }
 
-export default connect(mapStateToProps)(LocationPage);
+export default withRouter(connect(mapStateToProps)(LocationPage));

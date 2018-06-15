@@ -5,7 +5,12 @@ export default function reducer(
     fetched: false,
     authenticated: false,
     error: null,
-    config: {}
+    config: {},
+    login: {
+      fetched: false,
+      fetching: false,
+      authenticated: false
+    }
   },
   action
 ) {
@@ -74,13 +79,13 @@ export default function reducer(
       return { ...state, fetching: false, fetched: true };
 
     case 'AUTHENTICATE_USER':
-      return { ...state, fetching: true, fetched: false };
+      return { ...state, login:{...state.login, fetching: true, fetched: false }};
     case 'AUTHENTICATE_USER_FULFILLED':
-      return { ...state, fetching: false, fetched: true };
+      return { ...state, login:{...state.login, fetching: false, fetched: true }};
     case 'AUTHENTICATE_USER_DENIED':
-      return { ...state, fetching: false, fetched: true };
+      return { ...state, login:{...state.login, fetching: false, fetched: true }};
     case 'AUTHENTICATE_USER_REJECTED':
-      return { ...state, fetching: false, error: action.payload };
+      return { ...state, login: {...state.login, fetching: false}, error: action.payload };
 
     case 'LOGOUT_USER':
       return { ...state, fetching: true, fetched: false };

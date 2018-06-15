@@ -5,7 +5,7 @@ import locations from './locationsReducer';
 import user from './usersReducer';
 import houses from './housesReducer';
 import callover from './calloverReducer';
-import calender from './calenderReducer';
+import calendar from './calendarReducer';
 
 export default combineReducers({
   user,
@@ -13,5 +13,5 @@ export default combineReducers({
   locations,
   houses,
   callover,
-  calender
+  calendar
 });
