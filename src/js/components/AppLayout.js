@@ -1,21 +1,20 @@
 import React from 'react';
-import LoginPage from './LoginPage';
-import MainSectionLayout from './MainSectionLayout';
+import { ProgressIndicator } from 'office-ui-fabric-react';
+import LoginPage from './pages/LoginPage';
+import AuthLayout from './AuthLayout';
 import { connect } from 'react-redux';
-import ViewPage from './ViewPage';
 import { readUser } from '../actions/usersActions';
-import { readHouses } from '../actions/housesActions';
 
-class App extends React.Component {
+class AppLayout extends React.Component {
   componentWillMount() {
     this.props.dispatch(readUser());
   }
 
   render() {
     if (this.props.user.fetching) {
-      return <div className="loader" />;
+      return <ProgressIndicator label="Loading" description="Realtime Integrated Data Gathering Environment"/>;
     } else if (this.props.user.authenticated) {
-      return <MainSectionLayout />;
+      return <AuthLayout />;
     } else if (this.props.user.fetched) {
       return <LoginPage />;
     }
@@ -26,4 +25,4 @@ function mapStateToProps(state) {
   return { user: state.user, houses: state.houses };
 }
 
-export default connect(mapStateToProps)(App);
+export default connect(mapStateToProps)(AppLayout);

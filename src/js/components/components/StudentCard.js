@@ -1,5 +1,23 @@
 import React from 'react';
 import { connect } from 'react-redux';
+import {gray} from '../styles/colours';
+import styled from 'styled-components';
+
+const StudentCardWrapper = styled.div`
+    background-color: white;
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+    transition: 0.3s;
+    margin: 0.25rem;
+    &:hover{
+        box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+    }
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    text-align: center;
+    border: 5px solid ${gray}
+`;
 
 class StudentCard extends React.Component {
   constructor(props) {
@@ -22,33 +40,30 @@ class StudentCard extends React.Component {
     };
     var date = new Date(this.props.student.timelastout);
     return (
-      <div className="student-card" onClick={this.select.bind(this)}>
-        <div className="student-card-body" style={locationStyle}>
-          {!this.props.view ? (
-            <p className="student-card-body-date">
+      <StudentCardWrapper onClick={this.select.bind(this)} style={locationStyle}>
+            {!this.props.view ? (
+            <p className="ms-font-s">
               {date.toLocaleTimeString()}
               <br />
               {date.toLocaleDateString()}
             </p>
           ) : null}
-          <p className="student-card-body-name">
+          <p className="ms-font-xl">
             {this.props.student.firstname} {this.props.student.surname}
           </p>
-          <div className="student-card-body-bottom">
-            <p>
+          <div>
+            <p className="ms-font-m">
               {
                 this.props.user.config.YEARGROUP_NAMES[
                   this.props.student.yeargroup
                 ]
               }
             </p>
-            <br />
-            <p className="student-card-body-bottom">
+            <p className="ms-font-m">
               {this.props.student.location.name}
             </p>
           </div>
-        </div>
-      </div>
+      </StudentCardWrapper>
     );
     // style={this.state.selected ? selectedStyle : null}
   }

@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { updateStudentLocation } from '../actions/studentsActions';
-import { createCallover } from '../actions/calloverActions';
+import { updateStudentLocation } from '../../actions/studentsActions';
+import { createCallover } from '../../actions/calloverActions';
 class CalloverPage extends React.Component {
   constructor(props) {
     super(props);

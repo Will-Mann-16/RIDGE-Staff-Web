@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { withRouter, Redirect } from 'react-router-dom';
-import { createLocation, updateLocation } from '../actions/locationsActions';
+import { createLocation, updateLocation } from '../../actions/locationsActions';
 import { CirclePicker, SliderPicker } from 'react-color';
 
 class LocationPage extends React.Component {

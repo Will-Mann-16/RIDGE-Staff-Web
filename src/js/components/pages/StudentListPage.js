@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
-import { deleteStudent, uploadStudents } from '../actions/studentsActions';
+import { deleteStudent, uploadStudents } from '../../actions/studentsActions';
 import FileSaver from 'file-saver';
 import { Toggle } from 'react-powerplug';
 import XLSX from 'xlsx';
@@ -193,14 +193,10 @@ class StudentListPage extends React.Component {
     return (
       <div className="container">
         <Toggle initial={false}>
-          {({ on, toggle }) => {
-            var filterOn = on;
-            var filterToggle = toggle;
+          {({ on: filterOn, toggle: filterToggle }) => {
             return (
               <Toggle initial={false}>
-                {({ on, toggle }) => {
-                  var uploadOn = on;
-                  var uploadToggle = toggle;
+                {({ on: uploadOn, toggle: uploadToggle }) => {
                   return (
                     <div>
                       <div className="icon-bar">

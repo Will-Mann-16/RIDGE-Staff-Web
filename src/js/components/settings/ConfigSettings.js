@@ -1,6 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { modifyHouseConfig } from '../actions/housesActions';
+import { modifyHouseConfig } from '../../actions/housesActions';
 import { Toggle } from 'react-powerplug';
 
 class ConfigSettings extends React.Component {

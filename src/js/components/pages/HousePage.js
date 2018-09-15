@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { SketchPicker } from 'react-color';
-import { createHouse, updateHouse } from '../actions/housesActions';
+import { createHouse, updateHouse } from '../../actions/housesActions';
 import { Redirect } from 'react-router-dom';
 import { Toggle } from 'react-powerplug';
 

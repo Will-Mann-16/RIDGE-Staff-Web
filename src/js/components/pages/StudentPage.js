@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { withRouter, Redirect } from 'react-router-dom';
-import { createStudent, updateStudent } from '../actions/studentsActions';
+import { createStudent, updateStudent } from '../../actions/studentsActions';
 
 class StudentPage extends React.Component {
   constructor(props) {

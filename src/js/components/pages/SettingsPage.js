@@ -1,8 +1,8 @@
 import React from 'react';
 import { connect } from 'react-redux';
 
-import UserSettings from './UserSettings';
-import ConfigSettings from './ConfigSettings';
+import UserSettings from '../settings/UserSettings';
+import ConfigSettings from '../settings/ConfigSettings';
 
 class SettingsPage extends React.Component {
   constructor(props) {

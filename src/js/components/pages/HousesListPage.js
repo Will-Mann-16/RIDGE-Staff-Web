@@ -2,8 +2,8 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { Toggle } from 'react-powerplug';
-import { changeUserHouse } from '../actions/usersActions';
-import { deleteHouse } from '../actions/housesActions';
+import { changeUserHouse } from '../../actions/usersActions';
+import { deleteHouse } from '../../actions/housesActions';
 
 class HousesListPage extends React.Component {
   constructor(props) {

@@ -2,7 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { Toggle } from 'react-powerplug';
-import { deleteLocation, updateLocation } from '../actions/locationsActions';
+import { deleteLocation, updateLocation } from '../../actions/locationsActions';
 
 class LocationListPage extends React.Component {
   constructor(props) {

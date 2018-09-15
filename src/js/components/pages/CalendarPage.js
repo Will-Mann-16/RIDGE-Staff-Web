@@ -5,7 +5,7 @@ import {
   createCalendar,
   deleteCalendar,
   updateCalendar
-} from '../actions/calendarActions';
+} from '../../actions/calendarActions';
 class CalendarPage extends React.Component {
   constructor(props) {
     super(props);

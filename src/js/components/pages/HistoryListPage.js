@@ -1,5 +1,5 @@
 import React from 'react';
-import {axiosOpen} from '../constants';
+import {axiosOpen} from '../../constants';
 import originalMoment from "moment";
 import { extendMoment } from "moment-range";
 import DateRangePicker from "react-daterange-picker";

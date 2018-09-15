@@ -1,6 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { createUser, updateUser, logoutUser } from '../actions/usersActions';
+import { createUser, updateUser, logoutUser } from '../../actions/usersActions';
 
 class UserSettings extends React.PureComponent {
   constructor(props) {

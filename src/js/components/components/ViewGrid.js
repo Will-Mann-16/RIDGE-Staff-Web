@@ -1,16 +1,37 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { Toggle } from 'react-powerplug';
-import { house } from '../socket';
+import { DefaultButton } from 'office-ui-fabric-react';
+import { house } from '../../socket';
 import {
   selectStudent,
   deselectStudent,
   updateStudentLocation,
   deselectAll
-} from '../actions/studentsActions';
-
+} from '../../actions/studentsActions';
+import styled from 'styled-components';
 import StudentCard from './StudentCard';
 import LocationButton from './LocationButton';
+
+const ViewWrapper = styled.div`
+  display: flex;
+  margin: 1rem;
+  align-items: stretch;
+  justify-content: space-between;
+`;
+
+const StudentGrid = styled.div`
+  display: grid;  
+  grid-template-columns: repeat(auto-fill, 15vmin);
+  grid-auto-rows: auto;  
+  width: 100%;
+`;
+
+const LocationsList = styled.div`
+  display: flex;
+  flex-basis: 30vmin;
+  flex-direction: column;
+`;
 
 class ViewGrid extends React.Component {
   constructor(props) {
@@ -88,36 +109,34 @@ class ViewGrid extends React.Component {
       });
     });
     return (
-      <div
+      <ViewWrapper
         id="view-grid"
-        className="row"
-        style={{ marginTop: this.props.view ? 0 : 50 }}
       >
-        <div className="col-10">{studentHTML}</div>
-        <div className="col-2">
+        <StudentGrid>{studentHTML}</StudentGrid>
+        <LocationsList>
           <Toggle initial={false}>
             {({ on, toggle }) => {
               return (
                 <div>
-                  <div className="accordian location-button" onClick={toggle}>
-                    <div className="location-button-body">Select</div>
-                  </div>
+                  <DefaultButton primary style={{width: '100%'}} onClick={toggle}>
+                    Select
+                  </DefaultButton>
                   {on && (
-                    <div className="panel">
-                      <button
-                        className="select-button"
+                    <div>
+                      <DefaultButton
+                          style={{width: '100%'}}
                         onClick={() => this.props.dispatch(deselectAll())}
                       >
                         Deselect All
-                      </button>
+                      </DefaultButton>
                       {this.props.user.config.YEARGROUP_NAMES.map(
                         (yeargroup, key) => (
-                          <button
-                            className="select-button"
+                          <DefaultButton
+                              style={{width: '100%'}}
                             onClick={this.selectYear.bind(this, key)}
                           >
                             {yeargroup}
-                          </button>
+                          </DefaultButton>
                         )
                       )}
                     </div>
@@ -127,8 +146,8 @@ class ViewGrid extends React.Component {
             }}
           </Toggle>
           {locationHTML}
-        </div>
-      </div>
+        </LocationsList>
+        </ViewWrapper>
     );
   }
 }
